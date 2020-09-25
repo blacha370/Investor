@@ -15,6 +15,6 @@ class RequestHandler:
         for day in list(data['Time Series (Daily)'].values())[0:30]:
             day_open = float(day['1. open'])
             day_close = float(day['4. close'])
-            day_change = round((day_close - day_open) / day_open, 5)
+            day_change = round(day_close / day_open, 5)
             values.append((day_open, day_close, day_change))
         return values
