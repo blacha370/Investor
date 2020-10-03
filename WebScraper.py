@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
 from selenium.webdriver.support import expected_conditions as EC
-import time
 
 
 class WebScraper:
@@ -77,6 +76,5 @@ class WebScraper:
         open_value = float(open_value)
         ask_value = float(ask_value.split(' ')[0])
         bid_value = float(bid_value.split(' ')[0])
-
         browser.quit()
         return open_value, ask_value, bid_value
