@@ -25,9 +25,9 @@ class WebScraper:
         try:
             WebDriverWait(browser, timeout).until(EC.presence_of_element_located((By.XPATH, path)))
         except TimeoutException:
-            pass
-        finally:
             return True
+        finally:
+            return False
 
     def get_most_active_stocks(self, amount):
         browser = self.create_driver()
@@ -36,9 +36,10 @@ class WebScraper:
         cookie_btn = WebScraper.get_element(
             browser, '//div[@class="actions couple"]//form[@class="consent-form"]//button[@class="btn primary"]')
         cookie_btn.click()
-        WebScraper.check_if_element_disappear(
-            browser, '//div[@class="actions couple"]//form[@class="consent-form"]//button[@class="btn primary"]',
-            timeout=1)
+        while WebScraper.check_if_element_disappear(
+                browser, '//div[@class="actions couple"]//form[@class="consent-form"]//button[@class="btn primary"]',
+                timeout=1):
+            pass
         for _ in range(2):
             change_btn = WebScraper.get_element(
                 browser, '//div[@class="Ovx(a) Ovx(h)--print Ovy(h) "]//table[@class="W(100%)"]//thead//tr//th[5]')
