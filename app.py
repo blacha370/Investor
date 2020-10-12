@@ -1,5 +1,5 @@
-from WebScraper import WebScraper
-from MarketStock import MarketStock
+from .WebScraper import WebScraper
+from .MarketStock import MarketStock
 import time
 
 

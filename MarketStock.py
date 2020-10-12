@@ -1,5 +1,5 @@
-from RequestHandler import RequestHandler
-from DataConverter import DataConverter
+from .RequestHandler import RequestHandler
+from .DataConverter import DataConverter
 
 
 class MarketStock:
